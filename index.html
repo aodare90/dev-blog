@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abis · Learning front-end</title>
+  <meta name="description" content="Notes from learning front-end web development: HTML, CSS, JavaScript and accessibility.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400..600&family=Schibsted+Grotesk:wght@400..900&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--PAGE-->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Abis Dare, home">
+        <span class="logo-mark" aria-hidden="true"><span><span><span></span></span></span></span>
+        Abis Dare
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro wrap" aria-labelledby="name">
+      <div class="boxmodel">
+        <span class="bm-tip" aria-hidden="true">h1.name <b class="bm-size">412 × 68</b></span>
+        <div class="bm-layer bm-margin"><span class="bm-label" aria-hidden="true">margin</span>
+          <div class="bm-layer bm-border"><span class="bm-label" aria-hidden="true">border</span>
+            <div class="bm-layer bm-padding"><span class="bm-label" aria-hidden="true">padding</span>
+              <div class="bm-content">
+                <h1 class="name" id="name">Abis</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tagline">Hi! I'm a front-end engineer writing on web development, what clicks, what breaks, and how I fixed it.</p>
+
+    </section>
+
+    <section class="posts wrap" aria-labelledby="posts-heading">
+      <div class="section-head">
+        <h2 id="posts-heading">Posts</h2>
+        <div class="filters" role="group" aria-label="Filter posts by topic">
+          <button class="filter" type="button" data-topic="all" aria-pressed="true">all</button>
+          <button class="filter" type="button" data-topic="html" aria-pressed="false">&lt;html&gt;</button>
+          <button class="filter" type="button" data-topic="css" aria-pressed="false">{ css }</button>
+          <button class="filter" type="button" data-topic="js" aria-pressed="false">js()</button>
+          <button class="filter" type="button" data-topic="a11y" aria-pressed="false">[aria]</button>
+        </div>
+      </div>
+
+      <ol class="post-list" reversed>
+        <li class="post-item" data-topic="css">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-10-08">Oct 08, 2026</time>
+            <h3 class="post-title"><span>Why my flex items refused to shrink</span></h3>
+            <p class="post-summary">A long link kept breaking my card layout. The fix was one line, and the reason behind it taught me how flexbox decides sizes.</p>
+            <div class="post-meta"><span class="tag">{ css }</span><span>6 min read</span></div>
+          </a>
+        </li>
+        <li class="post-item" data-topic="html">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-10-01">Oct 01, 2026</time>
+            <h3 class="post-title"><span>I was using a div for everything</span></h3>
+            <p class="post-summary">Rewriting my first page with header, main, article and nav. What changed for screen readers, and what changed in my CSS.</p>
+            <div class="post-meta"><span class="tag">&lt;html&gt;</span><span>5 min read</span></div>
+          </a>
+        </li>
+        <li class="post-item" data-topic="js">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-09-24">Sep 24, 2026</time>
+            <h3 class="post-title"><span>What const actually protects</span></h3>
+            <p class="post-summary">I thought const made a value frozen. It only stops the name from being reassigned, and an array taught me the difference.</p>
+            <div class="post-meta"><span class="tag">js()</span><span>4 min read</span></div>
+          </a>
+        </li>
+        <li class="post-item" data-topic="css">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-09-17">Sep 17, 2026</time>
+            <h3 class="post-title"><span>My first grid layout, sketched on paper first</span></h3>
+            <p class="post-summary">Drawing the columns by hand before writing grid-template-areas made the code almost write itself.</p>
+            <div class="post-meta"><span class="tag">{ css }</span><span>7 min read</span></div>
+          </a>
+        </li>
+        <li class="post-item" data-topic="a11y">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-09-09">Sep 09, 2026</time>
+            <h3 class="post-title"><span>Making a button you can use with a keyboard</span></h3>
+            <p class="post-summary">My clickable div worked with a mouse and nothing else. Switching to a real button fixed focus, Enter and Space for free.</p>
+            <div class="post-meta"><span class="tag">[aria]</span><span>5 min read</span></div>
+          </a>
+        </li>
+        <li class="post-item" data-topic="html">
+          <a href="post.html">
+            <time class="post-date" datetime="2026-08-30">Aug 30, 2026</time>
+            <h3 class="post-title"><span>Every input needs a label</span></h3>
+            <p class="post-summary">Placeholders disappear as soon as you type. Labels stay, and clicking one focuses its field.</p>
+            <div class="post-meta"><span class="tag">&lt;html&gt;</span><span>4 min read</span></div>
+          </a>
+        </li>
+      </ol>
+      <p class="empty" hidden>No posts on this topic yet.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Written and built by Abis Dare</p>
+      <nav aria-label="Elsewhere">
+        <a href="#">GitHub</a>
+        <a href="#">RSS</a>
+      </nav>
+    </div>
+  </footer>
+  <!--/PAGE-->
+
+  <script src="script.js"></script>
+</body>
+</html>

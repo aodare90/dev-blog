@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume · Abis</title>
+  <meta name="description" content="Resume of Abis, front-end developer in training.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400..600&family=Schibsted+Grotesk:wght@400..900&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--PAGE-->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Abis Dare, home">
+        <span class="logo-mark" aria-hidden="true"><span><span><span></span></span></span></span>
+        Abis Dare
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="about.html">About</a>
+        <a href="resume.html" aria-current="page">Resume</a>
+        <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page wrap">
+    <header class="page-head">
+      <h1>Resume</h1>
+      <p class="lede">Front-end developer in training, focused on clean HTML, careful CSS and accessible interfaces.</p>
+      <div class="contact">
+        <span>[City, Country]</span>
+        <span>[your email]</span>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </header>
+
+    <section class="resume-section" aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <ul class="skills">
+        <li class="tag">HTML</li>
+        <li class="tag">CSS</li>
+        <li class="tag">Flexbox</li>
+        <li class="tag">CSS Grid</li>
+        <li class="tag">Responsive design</li>
+        <li class="tag">JavaScript</li>
+        <li class="tag">Accessibility</li>
+        <li class="tag">Git</li>
+      </ul>
+    </section>
+
+    <section class="resume-section" aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+      <ul class="entries">
+        <li class="entry">
+          <span class="entry-when">2026</span>
+          <h3>This blog <span>· HTML, CSS, JavaScript</span></h3>
+          <p>A hand-built personal site with light and dark themes, a topic filter, and a layout that works on phones.</p>
+        </li>
+        <li class="entry">
+          <span class="entry-when">[Year]</span>
+          <h3>[Project name] <span>· [tools used]</span></h3>
+          <p>[One or two sentences on what it does and what you learned building it.]</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="resume-section" aria-labelledby="learning">
+      <h2 id="learning">Education and courses</h2>
+      <ul class="entries">
+        <li class="entry">
+          <span class="entry-when">[Year]–now</span>
+          <h3>[Course or program] <span>· [School or platform]</span></h3>
+          <p>[What it covers, for example HTML, CSS, JavaScript fundamentals and responsive layouts.]</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="resume-section" aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+      <ul class="entries">
+        <li class="entry">
+          <span class="entry-when">[Year]–[Year]</span>
+          <h3>[Role] <span>· [Company]</span></h3>
+          <p>[What you did there. Past work outside tech still counts: teamwork, deadlines, customers.]</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Written and built by Abis Dare</p>
+      <nav aria-label="Elsewhere">
+        <a href="#">GitHub</a>
+        <a href="#">RSS</a>
+      </nav>
+    </div>
+  </footer>
+  <!--/PAGE-->
+
+  <script src="script.js"></script>
+</body>
+</html>

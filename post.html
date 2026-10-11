@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why my flex items refused to shrink · Abis</title>
+  <meta name="description" content="A long link kept breaking my card layout. The fix was min-width: 0.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400..600&family=Schibsted+Grotesk:wght@400..900&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--PAGE-->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Abis Dare, home">
+        <span class="logo-mark" aria-hidden="true"><span><span><span></span></span></span></span>
+        Abis Dare
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article wrap">
+    <a class="back" href="index.html"><span aria-hidden="true">←</span> All posts</a>
+
+    <article>
+      <header class="article-head">
+        <div class="post-meta">
+          <span class="tag">{ css }</span>
+          <time datetime="2026-10-08">Oct 08, 2026</time>
+          <span>6 min read</span>
+          <span>Day 71</span>
+        </div>
+        <h1>Why my flex items refused to shrink</h1>
+        <p class="lede">A long link kept breaking my card layout. The fix was one line, and the reason behind it taught me how flexbox decides sizes.</p>
+      </header>
+
+      <div class="prose">
+        <p>I was building a small profile card: an avatar on the left and some text on the right. It looked fine until I pasted in a real website address. The text column refused to get narrower, and the whole card pushed past the edge of the screen on my phone.</p>
+
+        <p>My first guess was that I needed <code>flex-shrink: 1</code>. That is already the default, so adding it changed nothing.</p>
+
+        <h2>What was actually happening</h2>
+
+        <p>Flex items have a hidden rule: by default they will not shrink smaller than their content. In CSS terms, a flex item's <code>min-width</code> is <code>auto</code>, and for a flex item <code>auto</code> means “as wide as the longest thing inside that can't wrap”. A long URL has no spaces, so it can't wrap, and the column can't shrink.</p>
+
+        <figure class="code">
+          <figcaption><span>card.css</span><span>before → after</span></figcaption>
+<pre><code><span class="k">.card</span> {
+  display: flex;
+  gap: 1rem;
+}
+
+<span class="k">.card-text</span> {
+  flex: 1;
+  <mark>min-width: 0;</mark>        <span class="c">/* let it shrink below its content */</span>
+  overflow-wrap: anywhere; <span class="c">/* and let the long link break */</span>
+}</code></pre>
+        </figure>
+
+        <p>Setting <code>min-width: 0</code> removes that floor, so the column can be as narrow as the card needs. On its own the URL would then spill out of the column, which is why the second line, <code>overflow-wrap: anywhere</code>, lets it break onto a new line.</p>
+
+        <h2>How I found it</h2>
+
+        <p>I opened DevTools, selected the text column, and looked at its computed width. It was wider than the card. Hovering the URL showed it was exactly the same width as the column, which made it clear the content was setting the size, not the layout.</p>
+
+        <div class="takeaway">
+          <p>Flex items won't shrink smaller than their content unless you give them <code>min-width: 0</code>. Grid items behave the same way, so a column defined as <code>1fr</code> has the same problem and the same fix: use <code>minmax(0, 1fr)</code>.</p>
+        </div>
+
+        <h2>Sources I used</h2>
+        <ul class="sources">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width">MDN: min-width</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap">MDN: overflow-wrap</a></li>
+          <li><a href="https://www.w3.org/TR/css-flexbox-1/#min-size-auto">CSS Flexbox spec: automatic minimum size</a></li>
+        </ul>
+      </div>
+
+      <nav class="post-nav" aria-label="More posts">
+        <a class="prev" href="post.html">
+          <small>← Older</small>
+          <strong>I was using a div for everything</strong>
+        </a>
+        <a class="next" href="index.html">
+          <small>Back to</small>
+          <strong>All posts →</strong>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Written and built by Abis Dare</p>
+      <nav aria-label="Elsewhere">
+        <a href="#">GitHub</a>
+        <a href="#">RSS</a>
+      </nav>
+    </div>
+  </footer>
+  <!--/PAGE-->
+
+  <script src="script.js"></script>
+</body>
+</html>
