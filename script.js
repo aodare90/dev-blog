@@ -17,17 +17,6 @@
     });
   });
 
-  // The nameplate tooltip shows the heading's real rendered size, like DevTools.
-  var name = document.querySelector(".name");
-  var size = document.querySelector(".bm-size");
-  function measure() {
-    if (!name || !size) return;
-    var box = name.getBoundingClientRect();
-    size.textContent = Math.round(box.width) + " × " + Math.round(box.height);
-  }
-  measure();
-  addEventListener("resize", measure);
-  if (document.fonts) document.fonts.ready.then(measure);
 
   // Topic filter on the home page.
   var buttons = document.querySelectorAll(".filter");
